@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AlamofireImage
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -34,6 +34,16 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
         present(picker, animated: true, completion: nil)
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+        let size = CGSize(width: 300, height: 300)
+        let scaledImage = image.af_imageScaled(to: size)
+        
+        imageView.image = scaledImage
+         
+        dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
@@ -42,6 +52,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+*/
+
 
 }
