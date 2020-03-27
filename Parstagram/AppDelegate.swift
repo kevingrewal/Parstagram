@@ -20,8 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
             configuration.applicationId = "Parstagram"
             configuration.server = "https://afternoon-sands-94580.herokuapp.com/parse"
-        })
-        )
+        }))
         return true
     }
 
